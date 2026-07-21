@@ -1,10 +1,9 @@
-/* --- 01. 기본 설정 (Base) --- */
 :root {
-    --bg-deep: #121212;        /* 다크 모드 배경 */
-    --bg-card: #1e1e1e;        /* 카드 배경 */
-    --text-main: #e0e0e0;      /* 메인 텍스트 */
-    --text-sub: #a0a0a0;       /* 서브 텍스트 */
-    --accent-blue: #00bcd4;    /* 포인트 색상 (시안 블루) */
+    --bg-deep: #121212;
+    --bg-card: #1e1e1e;
+    --text-main: #e0e0e0;
+    --text-sub: #a0a0a0;
+    --accent-blue: #00bcd4;
     --accent-gradient: linear-gradient(45deg, #00bcd4, #2196f3);
     --font-main: 'Noto Sans KR', sans-serif;
 }
@@ -21,7 +20,6 @@ body {
     min-height: 100vh;
 }
 
-/* --- 02. 헤더 (Header) --- */
 .main-header {
     text-align: center;
     padding: 80px 20px;
@@ -44,10 +42,11 @@ body {
 }
 
 .main-header h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 900;
     margin: 0 0 15px 0;
     letter-spacing: -1px;
+    color: #ffffff;
 }
 
 .main-header h1 .highlight {
@@ -57,12 +56,11 @@ body {
 }
 
 .main-header p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-sub);
     font-weight: 300;
 }
 
-/* --- 03. 카드 그리드 (Card Grid) --- */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -70,7 +68,9 @@ body {
     max-width: 1100px;
     margin: 60px auto;
     padding: 0 20px;
-    flex: 1; /* 푸터를 아래로 밀기 위해 설정 */
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .animated-card-link {
@@ -81,13 +81,12 @@ body {
 }
 
 .animated-card-link:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
 }
 
-/* 카드 공통 스타일 */
 .drone-card {
     background-color: var(--bg-card);
-    height: 350px;
+    height: 320px;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
@@ -95,31 +94,22 @@ body {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* 카드에 마우스를 올렸을 때 효과 */
 .animated-card-link:hover .drone-card {
     border-color: var(--accent-blue);
     box-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
 }
 
-/* 카드 배경 이미지 설정 (실제 이미지 경로로 변경 필요) */
-/* 예시: static 폴더에 drone1.jpg, drone2.jpg, drone3.jpg가 있다고 가정 */
-.card-bg-1 { background: linear-gradient(rgba(30,30,30,0.85), rgba(30,30,30,0.85)), url('/static/drone1.jpg') center/cover; }
-.card-bg-2 { background: linear-gradient(rgba(30,30,30,0.85), rgba(30,30,30,0.85)), url('/static/drone2.jpg') center/cover; }
-.card-bg-3 { background: linear-gradient(rgba(30,30,30,0.85), rgba(30,30,30,0.85)), url('/static/drone3.jpg') center/cover; }
-
 .card-content-wrapper {
-    padding: 40px;
+    padding: 35px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* 텍스트를 아래쪽에 배치 */
+    justify-content: space-between;
     box-sizing: border-box;
-    position: relative;
-    z-index: 2;
 }
 
 .drone-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     margin: 0 0 10px 0;
     color: white;
     font-weight: 700;
@@ -127,15 +117,15 @@ body {
 }
 
 .drone-card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-sub);
-    margin: 0 0 20px 0;
-    opacity: 0.8;
+    margin: 0;
+    line-height: 1.5;
 }
 
 .card-footer {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 15px;
     display: flex;
     justify-content: flex-end;
 }
@@ -144,28 +134,93 @@ body {
     font-size: 0.9rem;
     font-weight: bold;
     color: var(--accent-blue);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
-/* --- 04. 푸터 (Footer) --- */
 .main-footer {
     text-align: center;
-    padding: 40px;
+    padding: 30px;
     color: #555;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border-top: 1px solid #333;
     margin-top: auto;
 }
 
-/* --- 05. 반응형 설정 (Mobile) --- */
+/* 상세 페이지 디자인 */
+.detail-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.detail-container {
+    max-width: 700px;
+    width: 100%;
+    background: var(--bg-card);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border: 1px solid #333;
+    box-sizing: border-box;
+}
+
+.category-tag {
+    background-color: rgba(0, 188, 212, 0.15);
+    color: var(--accent-blue);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.detail-container h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin: 20px 0 0 0;
+    font-weight: 700;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #333;
+    margin: 25px 0;
+}
+
+.content-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.btn-area {
+    margin-top: 40px;
+}
+
+.back-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--accent-gradient);
+    color: #121212;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: opacity 0.2s;
+}
+
+.back-btn:hover {
+    opacity: 0.85;
+}
+
 @media (max-width: 768px) {
     .main-header h1 {
         font-size: 2.5rem;
     }
-    .main-header p {
-        font-size: 1rem;
-    }
-    .card-grid {
-        grid-template-columns: 1fr; /* 모바일에서는 한 줄로 표시 */
+    .detail-container {
+        padding: 30px 20px;
     }
 }
