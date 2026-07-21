@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>드론의 모든 것 - DRONE INSIDE</title>
+    <!-- 구글 폰트 추가 (Noto Sans KR) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <span class="brand-sub">당신을 위한 스마트한 가이드</span>
+            <h1>DRONE<span class="highlight">INSIDE</span></h1>
+            <p>하늘 위 세상, 궁금한 이야기를 클릭해서 확인해보세요.</p>
+        </div>
+    </header>
+
+    <main class="card-grid">
+        {% for card in cards %}
+        <a href="/card/{{ card.id }}" class="animated-card-link">
+            <div class="drone-card card-bg-{{ card.id }}">
+                <div class="card-content-wrapper">
+                    <h3>{{ card.title }}</h3>
+                    <p>{{ card.summary }}</p>
+                    <div class="card-footer">
+                        <span class="read-more-btn">자세히 보기 +</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 Drone Inside Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>
